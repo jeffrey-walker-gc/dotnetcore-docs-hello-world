@@ -3,12 +3,30 @@
 @{    
     ViewData["Title"] = "Home page";
 }
+<head>
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
 
+    <script>
+        /* Add "https://api.ipify.org?format=json" to 
+        get the IP Address of user*/
+        $(document).ready(()=>{
+            $.getJSON("https://api.ipify.org?format=json",
+            function (data) {
+
+                // Displayin IP address on screen
+                $("#gfg").html(data.ip);
+            })
+        });
+    </script>
+</head>
 <div class="text-center">
     <h1 class="display-4">Hello World from judcflasivrapitestapp</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <hr />
     <div>Host operating system and IP: @Model.OSVersion</div>
+    <p id="gfg"></p>
 </div>
 
 
